@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magical Garden</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to top, #00111a, #003366);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }.flower { position: absolute; bottom: 0; width: 40px; height: 40px; background: pink; border-radius: 50%; animation: sway 3s infinite alternate ease-in-out; }
+
+@keyframes sway { 0% { transform: translateX(0); } 100% { transform: translateX(20px); } }
+
+.butterfly { position: absolute; width: 30px; height: 30px; background: url('https://i.ibb.co/jDqzM1R/butterfly.png') no-repeat center/contain; animation: fly 10s linear infinite; }
+
+@keyframes fly { 0% { transform: translate(-100px, 300px) rotate(0deg); } 25% { transform: translate(200px, 200px) rotate(45deg); } 50% { transform: translate(400px, 100px) rotate(-30deg); } 75% { transform: translate(600px, 200px) rotate(60deg); } 100% { transform: translate(800px, 300px) rotate(0deg); } }
+
+.firefly { position: absolute; width: 5px; height: 5px; background: yellow; border-radius: 50%; animation: glow 2s infinite alternate; }
+
+@keyframes glow { 0% { opacity: 0; } 100% { opacity: 1; } } </style>
+
+</head>
+<body><script>
+  // Bunga random
+  for(let i=0; i<10; i++) {
+    const flower = document.createElement('div');
+    flower.classList.add('flower');
+    flower.style.left = Math.random() * window.innerWidth + 'px';
+    flower.style.background = `hsl(${Math.random()*360}, 70%, 70%)`;
+    document.body.appendChild(flower);
+  }
+
+  // Kupu-kupu random
+  for(let i=0; i<3; i++) {
+    const butterfly = document.createElement('div');
+    butterfly.classList.add('butterfly');
+    butterfly.style.top = Math.random() * window.innerHeight/2 + 'px';
+    butterfly.style.left = Math.random() * window.innerWidth + 'px';
+    document.body.appendChild(butterfly);
+  }
+
+  // Kunang-kunang random
+  for(let i=0; i<20; i++) {
+    const firefly = document.createElement('div');
+    firefly.classList.add('firefly');
+    firefly.style.top = Math.random() * window.innerHeight + 'px';
+    firefly.style.left = Math.random() * window.innerWidth + 'px';
+    firefly.style.animationDuration = 1 + Math.random()*2 + 's';
+    document.body.appendChild(firefly);
+  }
+</script></body>
+</html>
